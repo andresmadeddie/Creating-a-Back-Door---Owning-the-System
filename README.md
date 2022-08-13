@@ -1,6 +1,6 @@
 # About this Project
 
-This project explore on method to create a backdoor and gain persistence on a compromised machine.
+This project explores a method to create a backdoor and gain persistence on a compromised machine.
 
 ![a](Images/a.png)
 
