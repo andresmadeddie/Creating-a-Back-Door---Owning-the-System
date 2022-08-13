@@ -15,7 +15,4 @@ To obtain this persistence, a backdoor is created using the SSH service. In shor
 | - Virtual box with an Ubuntu machine (linux-scavenger_linux) | - Nano text editor |
 | - Linux file system | - SSH |
 | - SSH server configuration | - sudoers file configuration |
-| - John the Ripper | - usermod command and flags |
-| - groupmod command and flags | - adduser command and flags |
-| - sudo commands and flags | - su command and flags |
-| - systemctl command and flags | - cat command |
+| - John the Ripper | - Commands: usermod, groupmod, adduser, sudo, su, systemctl, cat.
