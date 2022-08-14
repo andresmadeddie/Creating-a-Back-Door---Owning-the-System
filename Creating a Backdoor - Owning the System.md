@@ -157,8 +157,7 @@ Exiting the target machine, then access it again through the previously created 
 
 ---
 
-# Enjoy yourselve (THE END ?)
-
+# THE END ? (Enjoy yourselve)
 
 A backdoor has been created. Now that persistence (Command and Control or Maintaining Access) has been accomplished, it is time to move to the next step of the killer chain (Actions on Objective) or to the last stage of engagement (Covering your tracks).
 
