@@ -165,6 +165,6 @@ A backdoor has been created. Now that persistence (Command and Control or Mainta
 Example:
 Use John to crack the entire /etc/shadow file:
 
-`john /etc//shadow`
+`john /etc/shadow`
 
 ![15](Images/15.PNG)
