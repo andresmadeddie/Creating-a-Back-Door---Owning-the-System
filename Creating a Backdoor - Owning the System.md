@@ -51,6 +51,8 @@ To be a "shadow" in the system means to remain as unnoticed as possible. To achi
 
     ![2](Images/2.PNG) 
 
+    >Note: **adduser VS useradd command**. The command adduser is a perl script which uses useradd binary in back-end. For security reasons is prefered to use adduser instead of useradd. The command useradd will not ask for any information like password, and will not create a home directory. So, for this case you can consider to use useradd instead of adduser (try: `useradd sysd`).
+
 - ### System user's UID and GID
 
     UID (User Identified), and GID (Group Identifier) are numbers that identify users and groups. Numbers below 1000 are reserved for system processes. The "shadow user" should look like another process, so the following commands will do that.
